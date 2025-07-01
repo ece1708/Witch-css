@@ -1,1 +1,104 @@
 # Witch-css
+@import url('https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap');
+
+/* Temel arka plan & yazı */
+body {
+  background: url("https://i.imgur.com/GDEGaCy.jpg") no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'UnifrakturCook', cursive;
+  color: #f1e8e6;
+  position: relative;
+}
+
+/* Sis efekti */
+body::before, body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 400px;
+  background: url('https://i.imgur.com/k9XeG38.png') repeat-y;
+  opacity: 0.2;
+  filter: blur(4px);
+  mix-blend-mode: screen;
+  animation: mistmove 60s linear infinite;
+  pointer-events: none;
+  z-index: 9999;
+}
+body::after {
+  right: 0;
+  animation-duration: 90s;
+  animation-direction: reverse;
+}
+@keyframes mistmove {
+  from { transform: translateX(0); }
+  to { transform: translateX(1200px); }
+}
+
+/* Ana içerik kutusu */
+.container.main {
+  background-color: rgba(20, 10, 30, 0.85);
+  border: 2px solid #6f3a7e;
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 0 15px #a840ff;
+  position: relative;
+  z-index: 10000;
+}
+
+/* Başlık ve glow animasyon */
+h1, h2, h3 {
+  color: #ffdef7 !important;
+  text-shadow: 0 0 10px #ffb3ff;
+  font-family: 'UnifrakturCook', cursive;
+  animation: glow 3s ease-in-out infinite alternate!important;
+}
+@keyframes glow {
+  0% { text-shadow: 0 0 10px #ffb3ff; }
+  100% { text-shadow: 0 0 20px #ff90e8, 0 0 30px #d455ff; }
+}
+
+/* Bağlantı stilleri */
+a, a:visited {
+  color: #ff90e8 !important;
+  text-decoration: none !important;
+}
+a:hover {
+  color: #c644d4 !important;
+  text-shadow: 0 0 8px #d45bff;
+}
+
+/* Buton stilleri */
+button, input[type="submit"], input[type="button"] {
+  background-color: #4a234a !important;
+  color: #ffe6fa !important;
+  border: 1px solid #943e94 !important;
+  padding: 8px 16px;
+  border-radius: 5px!important;
+  font-size: 14px!important;
+  box-shadow: 0 0 8px #943e94;
+}
+button:hover, input[type="submit"]:hover, input[type="button"]:hover {
+  background-color: #943e94 !important;
+  color: black !important;
+  box-shadow: 0 0 15px #ff90e8;
+}
+
+/* Diğer bölümler */
+.topbar, .bottom, .sidebar, .feature, .footer {
+  background-color: #2b1d2f !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Scroll çubuğu */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #1f1a27;
+}
+::-webkit-scrollbar-thumb {
+  background: #6f3a7e;
+  border-radius: 5px;
+}
